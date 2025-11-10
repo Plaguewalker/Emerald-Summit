@@ -385,6 +385,11 @@
 	alert_type = /atom/movable/screen/alert/status_effect/buff/guardbuffone
 	effectedstats = list("constitution" = 1,"endurance" = 1, "speed" = 1, "perception" = 2)
 
+/datum/status_effect/buff/knightbuff
+	id = "knightbuff"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/knightbuff
+	effectedstats = list("constitution" = 2,"endurance" = 1, "speed" = 1,) // more con = my home, i will defend it to the last and all
+
 /datum/status_effect/buff/dungeoneerbuff
 	id = "dungeoneerbuff"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/dungeoneerbuff
@@ -404,6 +409,13 @@
 	var/area/rogue/our_area = get_area(owner)
 	if(!(our_area.town_area))
 		owner.remove_status_effect(/datum/status_effect/buff/guardbuffone)
+
+/datum/status_effect/buff/knightbuff/process()
+
+	.=..()
+	var/area/rogue/our_area = get_area(owner)
+	if(!(our_area.keep_area))
+		owner.remove_status_effect(/datum/status_effect/buff/knightbuff)
 
 /datum/status_effect/buff/wardenbuff/process()
 

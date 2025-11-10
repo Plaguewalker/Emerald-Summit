@@ -32,6 +32,12 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 /area/rogue/Entered(mob/living/carbon/human/guy)
 
 	. = ..()
+	if((src.keep_area == TRUE) && HAS_TRAIT(guy, TRAIT_GUARDSMAN_NOBLE) && !guy.has_status_effect(/datum/status_effect/buff/knightbuff)) //knights
+		guy.apply_status_effect(/datum/status_effect/buff/knightbuff)
+
+/area/rogue/Entered(mob/living/carbon/human/guy)
+
+	. = ..()
 	if((src.tavern_area == TRUE) && HAS_TRAIT(guy, TRAIT_TAVERN_FIGHTER) && !guy.has_status_effect(/datum/status_effect/buff/barkeepbuff)) // THE FIGHTER
 		guy.apply_status_effect(/datum/status_effect/buff/barkeepbuff)
 
