@@ -282,6 +282,8 @@
 		/obj/item/reagent_containers/glass/bottle/rogue/poison,
 		/obj/item/reagent_containers/glass/bottle/rogue/healthpot,
 		/obj/item/recipe_book/alchemy,
+		/obj/item/roguegem/amethyst ,
+		/obj/item/spellbook_unfinished/pre_arcyne,
 		/obj/item/rogueweapon/huntingknife/idagger/silver/arcyne
 		)
 
