@@ -225,7 +225,7 @@ GLOBAL_LIST_EMPTY(created_sound_groups)
 					if(SD)
 						M.stop_sound_channel(SD.channel)
 					M.client.played_loops -= src
-					thingshearing -= WEAKREF(M)
+					thingshearing -= listener_ref
 	else
 		var/mob/P = parent.resolve()
 		if(P && P.client)
