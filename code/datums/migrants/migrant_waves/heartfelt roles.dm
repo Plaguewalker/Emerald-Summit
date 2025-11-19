@@ -261,12 +261,6 @@
 		H.name = "[honorary] [prev_name]"
 		GLOB.chosen_names += H.real_name
 
-		for(var/X in peopleknowme)
-			for(var/datum/mind/MF in get_minds(X))
-				if(MF.known_people)
-					MF.known_people -= prev_real_name
-					H.mind.person_knows_me(MF)
-
 /datum/migrant_role/heartfelt/magos
 	name = "Magos of Heartfelt"
 	greet_text = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. Drawn by a guiding star to the Peak, you seek answers and perhaps a new purpose in the wake of destruction."
