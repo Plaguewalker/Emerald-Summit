@@ -579,3 +579,15 @@
 	penfactor = 80
 	damfactor = 0.9
 	item_d_type = "stab"
+
+/obj/item/rogueweapon/mace/cudgel/ogre
+	name = "weird cudgel"
+	desc = "This kinda looks like a bell ringer. There's no handle, so it's probably an emergency item."
+	force = 25
+	icon = 'icons/roguetown/weapons/64.dmi'
+	icon_state = "ogre_cudgel"
+	force_wielded = 25
+	minstr = 13
+	pixel_y = -16
+	pixel_x = -16
+	gripsprite = TRUE

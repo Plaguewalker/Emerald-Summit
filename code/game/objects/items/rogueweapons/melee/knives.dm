@@ -915,3 +915,16 @@
 			user.overlay_fullscreen("painflash", /atom/movable/screen/fullscreen/painflash)
 			return
 	..()
+
+/obj/item/rogueweapon/huntingknife/cleaver/ogre
+	name = "small choppa"
+	desc = "Mush 'em good."
+	icon = 'icons/roguetown/weapons/64.dmi'
+	icon_state = "ogre_cleaver"
+	force = 25
+	wbalance = WBALANCE_HEAVY
+	wdefense = 10 //im experimenting here
+	minstr = 13
+	pixel_y = -16
+	pixel_x = -16
+	bigboy = TRUE

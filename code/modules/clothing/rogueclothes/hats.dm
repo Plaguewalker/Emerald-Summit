@@ -2834,3 +2834,24 @@
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR
 	block2add = FOV_BEHIND
 	smeltresult = /obj/item/ingot/steel
+
+/obj/item/clothing/head/roguetown/cookhat/ogre
+	name = "oversized cook-hat"
+	desc = "Prepare the slop."
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "cookhat"
+	allowed_race = OGRE_RACE_TYPES
+
+/obj/item/clothing/head/roguetown/helmet/heavy/ogre
+	name = "iron barbute"
+	desc = "This one's too large for normal people."
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "merchelmet"
+	allowed_race = OGRE_RACE_TYPES
+
+/obj/item/clothing/head/roguetown/helmet/heavy/graggar/ogre
+	name = "crushing barbute"
+	desc = "KILL! CRUSH! MAIM!"
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "warlhelmet"
+	allowed_race = OGRE_RACE_TYPES

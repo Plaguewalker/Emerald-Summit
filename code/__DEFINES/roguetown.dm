@@ -189,6 +189,7 @@
 	/datum/species/dullahan,\
 	/datum/species/lamia,\
 	/datum/species/harpy,\
+	/datum/species/ogre,\
 )
 
 #define RACES_NOBILITY_ELIGIBLE \
@@ -200,6 +201,9 @@
 
 #define RACES_CHURCH_FAVORED \
 	/datum/species/aasimar,\
+
+#define RACES_OGRE_ROLES \
+	/datum/species/ogre,\
 
 #define RACES_APPOINTED_OUTCASTS \
     /datum/species/tieberian,\
@@ -237,6 +241,7 @@
 	/datum/species/lamia,\
 
 
+
 #define RACES_NOBILITY_ELIGIBLE_UP list(RACES_NOBILITY_ELIGIBLE)
 
 #define RACES_CHURCH_FAVORED_UP list(RACES_NOBILITY_ELIGIBLE, RACES_CHURCH_FAVORED)
@@ -253,7 +258,7 @@
 
 #define RACES_FEARED_UP list(RACES_NOBILITY_ELIGIBLE, RACES_CHURCH_FAVORED, RACES_APPOINTED_OUTCASTS, RACES_MANMADE, RACES_SECOND_CLASS, RACES_FEARED)
 
-#define RACES_ALL_KINDS list(RACES_NOBILITY_ELIGIBLE, RACES_CHURCH_FAVORED, RACES_APPOINTED_OUTCASTS, RACES_MANMADE, RACES_SECOND_CLASS, RACES_FEARED, RACES_WIDELY_REVILED)
+#define RACES_ALL_KINDS list(RACES_NOBILITY_ELIGIBLE, RACES_CHURCH_FAVORED, RACES_APPOINTED_OUTCASTS, RACES_MANMADE, RACES_SECOND_CLASS, RACES_FEARED, RACES_WIDELY_REVILED, RACES_OGRE_ROLES)
 
 #define RACES_NO_GOLEM list(RACES_NOBILITY_ELIGIBLE, RACES_CHURCH_FAVORED, RACES_APPOINTED_OUTCASTS, RACES_SECOND_CLASS, RACES_FEARED, RACES_WIDELY_REVILED)
 
@@ -318,6 +323,11 @@
 	/datum/species/anthromorphsmall,\
 	/datum/species/kobold,\
 	/datum/species/goblinp,\
+)
+
+// used for large (32x64) clothes
+#define OGRE_RACE_TYPES list(\
+	/datum/species/ogre,\
 )
 
 // Non-dwarf non-kobold non-goblin mostly
@@ -501,6 +511,7 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CTAG_GUILDSMEN 		"CAT_GUILDSMEN"		// Guildsmen class - Handles Guildsmen class selector
 #define CTAG_NIGHTMAIDEN	"CAT_NIGHTMAIDEN"	// Bathhouse Attendant's aesthetic choices.
 #define CTAG_PRISONER "CAT_PRISONER"
+#define CTAG_OGRE			"CAT_OGRE"					// ogre classes - handles ogre class selector
 
 // List of mono-class categories. Only here for standardisation sake, but can be added on if desired.
 #define CTAG_DUNGEONEER		"CAT_DUNGEONEER"

@@ -1725,3 +1725,19 @@
 /obj/item/clothing/suit/roguetown/armor/haori/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
+
+/obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ogre
+	name = "large hauberk"
+	desc = "This looks like it would fit someone of gargantuan size."
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/32x64/ogre_onmob_sleeves.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "ogre_maille"
+	allowed_race = OGRE_RACE_TYPES
+
+/obj/item/clothing/suit/roguetown/armor/plate/half/ogre
+	name = "gigantic cuirass"
+	desc = "This thing's absurdly thick. Heavy, too."
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "ogre_cuirass"
+	max_integrity = 450 // i think this is fine for a one slot role
+	allowed_race = OGRE_RACE_TYPES
