@@ -7,7 +7,6 @@
 /datum/coven_power/potence
 	name = "Potence power name"
 	desc = "Potence power description"
-
 	grouped_powers = list(
 		/datum/coven_power/potence/one,
 		/datum/coven_power/potence/two,
@@ -15,6 +14,16 @@
 		/datum/coven_power/potence/four,
 		/datum/coven_power/potence/five
 	)
+
+/datum/coven_power/potence/activate(atom/target)
+	. = ..()
+	owner.apply_status_effect(/datum/status_effect/buff/potence, level)
+	owner.visible_message(
+		span_warning("[owner] tenses their muscles, looking exceptionally stronger!"))
+
+/datum/coven_power/potence/deactivate(atom/target, direct)
+	. = ..()
+	owner.remove_status_effect(/datum/status_effect/buff/potence)
 
 //POTENCE 1
 /datum/coven_power/potence/one
@@ -29,12 +38,12 @@
 
 /datum/coven_power/potence/one/activate()
 	. = ..()
-	owner.dna.species.punch_damage += 8
+	owner.dna.species.punch_damage += 12
 	owner.potence_weapon_buff = 1
 
 /datum/coven_power/potence/one/deactivate()
 	. = ..()
-	owner.dna.species.punch_damage -= 8
+	owner.dna.species.punch_damage -= 12
 	owner.potence_weapon_buff = 0
 	owner.remove_overlay(POTENCE_LAYER)
 
@@ -53,12 +62,12 @@
 
 /datum/coven_power/potence/two/activate()
 	. = ..()
-	owner.dna.species.punch_damage += 16
+	owner.dna.species.punch_damage += 15
 	owner.potence_weapon_buff = 2
 
 /datum/coven_power/potence/two/deactivate()
 	. = ..()
-	owner.dna.species.punch_damage -= 16
+	owner.dna.species.punch_damage -= 15
 	owner.potence_weapon_buff = 0
 	owner.remove_overlay(POTENCE_LAYER)
 
@@ -76,13 +85,13 @@
 
 /datum/coven_power/potence/three/activate()
 	. = ..()
-	owner.dna.species.punch_damage += 24
+	owner.dna.species.punch_damage += 18
 	owner.potence_weapon_buff = 3
 
 
 /datum/coven_power/potence/three/deactivate()
 	. = ..()
-	owner.dna.species.punch_damage -= 24
+	owner.dna.species.punch_damage -= 18
 	owner.potence_weapon_buff = 0
 	owner.remove_overlay(POTENCE_LAYER)
 
@@ -100,12 +109,12 @@
 
 /datum/coven_power/potence/four/activate()
 	. = ..()
-	owner.dna.species.punch_damage += 32
+	owner.dna.species.punch_damage += 21
 	owner.potence_weapon_buff = 4
 
 /datum/coven_power/potence/four/deactivate()
 	. = ..()
-	owner.dna.species.punch_damage -= 32
+	owner.dna.species.punch_damage -= 21
 	owner.potence_weapon_buff = 0
 	owner.remove_overlay(POTENCE_LAYER)
 
@@ -124,11 +133,11 @@
 
 /datum/coven_power/potence/five/activate()
 	. = ..()
-	owner.dna.species.punch_damage += 40
+	owner.dna.species.punch_damage += 24
 	owner.potence_weapon_buff = 5
 
 /datum/coven_power/potence/five/deactivate()
 	. = ..()
-	owner.dna.species.punch_damage -= 40
+	owner.dna.species.punch_damage -= 24
 	owner.potence_weapon_buff = 0
 	owner.remove_overlay(POTENCE_LAYER)

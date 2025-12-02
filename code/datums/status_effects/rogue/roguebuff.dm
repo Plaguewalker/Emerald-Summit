@@ -1420,9 +1420,39 @@
 	effectedstats = list(STATKEY_SPD = 1)
 	status_type = STATUS_EFFECT_REPLACE
 
+/atom/movable/screen/alert/status_effect/buff/celerity
+	name = "Celerity"
+	desc = "Your body is under perfect control."
+	icon_state = "buff"
+
 /datum/status_effect/buff/celerity/New(list/arguments)
 	effectedstats[STATKEY_SPD] = arguments[2]
 	. = ..()
+
+/datum/status_effect/buff/potence
+	id = "potence"
+	alert_type = /atom/movable/screen/alert/status_effect/buff
+	effectedstats = list(STATKEY_STR = 1)
+	status_type = STATUS_EFFECT_REPLACE
+
+/atom/movable/screen/alert/status_effect/buff/potence
+	name = "Potence"
+	desc = "I am a force of destruction."
+	icon_state = "buff"
+
+/datum/status_effect/buff/potence/New(list/arguments)
+	effectedstats[STATKEY_STR] = arguments[2]
+	. = ..()
+
+/datum/status_effect/buff/potence/on_apply()
+	. = ..()
+	if(effectedstats = list(STATKEY_STR > 2))
+		ADD_TRAIT(owner, TRAIT_STRENGTH_UNCAPPED, id)
+
+
+/datum/status_effect/buff/potence/on_remove()
+	. = ..()
+	REMOVE_TRAIT(owner, TRAIT_STRENGTH_UNCAPPED, id)
 
 /datum/status_effect/buff/fotv
 	id = "fotv"
