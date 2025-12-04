@@ -22,7 +22,7 @@
 		src.STAPER = 15
 		src.STASPD = 15
 
-		AddSpell(new /obj/effect/proc_holder/spell/self/spiderfangs)
+		AddSpell(new /obj/effect/proc_holder/spell/self/spiderfangs/mire)
 		real_name = "Mire Crawler ([stored_mob.real_name])" //So we don't get a random name
 
 
