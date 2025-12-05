@@ -177,7 +177,7 @@
 
 /datum/rmb_intent/feint
 	name = "feint"
-	desc = "(RMB WHILE DEFENSE IS ACTIVE) A deceptive half-attack with no follow-through, meant to force your opponent to open their guard. Useless against someone who is dodging."
+	desc = "(RMB WHILE DEFENSE IS ACTIVE) A deceptive half-attack with no follow-through, meant to force your opponent to open their guard. Useless against someone who is dodging. Will fail on targets that are relaxed and less alert."
 	icon_state = "rmbfeint"
 
 /datum/rmb_intent/feint/special_attack(mob/living/user, atom/target)
@@ -194,7 +194,14 @@
 	if(user.has_status_effect(/datum/status_effect/debuff/feintcd))
 		return
 	var/mob/living/L = target
-	user.visible_message(span_danger("[user] feints an attack at [target]!"))
+	if (L.client && !L.cmode)
+		playsound(user, 'sound/combat/feint.ogg', 100, TRUE)
+		user.visible_message(span_danger("[user] attempts to feint an attack at [L], but only makes a fool of themselves!"))
+		user.OffBalance(3 SECONDS)
+		user.apply_status_effect(/datum/status_effect/debuff/feintcd)
+		return
+	else
+		user.visible_message(span_danger("[user] feints an attack at [target]!"))
 	var/perc = 50
 	var/obj/item/I = user.get_active_held_item()
 	var/ourskill = 0
