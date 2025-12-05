@@ -282,12 +282,19 @@ var/global/list/PATRON_ARTIFACTS = list(
 	if(tier_val > 4) tier_val = 4
 	return tier_val
 
-// 0 → -1 (nuffin), 1 → 1, 2 → 2, 3/4 → 4
+// 0 → -1 (nuffin), 1 → 1, 2 → 2, 3 → 3, 4 → 4
 /proc/allowed_tier_by_relation(level)
-	if(!isnum(level) || level <= 0) return -1
-	if(level == 1) return 1
-	if(level == 2) return 2
-	return 4
+	if(!isnum(level) || level <= 0)
+		return 0      // 0  →  tier 0 
+
+	if(level == 1)
+		return 1      //  1 → T1
+	if(level == 2)
+		return 2      //  2 → T2
+	if(level == 3)
+		return 3      // 3 → T3
+
+	return 4          // 4 →  T4
 
 /proc/get_spell_patron_name(spell_input)
 	var/spell_path = null
