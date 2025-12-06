@@ -536,11 +536,8 @@ GLOBAL_LIST_INIT(roguetown_areas_typecache, typecacheof(/area/rogue/indoors/town
 				/mob/living/simple_animal/hostile/retaliate/rogue/mole = 10,
 				/mob/living/simple_animal/hostile/retaliate/rogue/wolf/bobcat = 20,
 				/mob/living/simple_animal/hostile/retaliate/rogue/direbear = 15,
-				/mob/living/carbon/human/species/human/northern/searaider/ambush = 10,
-				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 30,
-				/mob/living/carbon/human/species/orc/npc/footsoldier = 10, 
-				/mob/living/carbon/human/species/orc/npc/berserker = 10,
-				/mob/living/carbon/human/species/orc/npc/marauder = 10,
+				/mob/living/carbon/human/species/human/northern/searaider/ambush = 25,
+				/mob/living/carbon/human/species/human/northern/highwayman/ambush = 45,
 				/mob/living/carbon/human/species/goblin/npc/ambush/sea = 40)
 	first_time_text = "THE SCARLET COAST"
 	converted_type = /area/rogue/indoors/shelter/woods
