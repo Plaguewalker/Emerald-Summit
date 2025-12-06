@@ -73550,6 +73550,10 @@
 	},
 /turf/open/floor/rogue/concrete,
 /area/rogue/outdoors/mountains/decap/stepbelow)
+"tyz" = (
+/obj/effect/landmark/start/ogre,
+/turf/open/floor/rogue/grass,
+/area/rogue/outdoors/woods)
 "tyH" = (
 /turf/open/floor/rogue/tile{
 	icon_state = "greenstone"
@@ -229717,7 +229721,7 @@ xkH
 xkH
 jFA
 jFA
-jFA
+tyz
 jFA
 jFA
 jFA
