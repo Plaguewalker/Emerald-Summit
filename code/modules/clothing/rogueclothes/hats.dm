@@ -344,6 +344,7 @@
 	flags_inv = HIDENECK
 	dynamic_hair_suffix = ""
 	sewrepair = TRUE
+	block2add = null
 
 /obj/item/clothing/head/roguetown/priestmask
 	name = "solar visage"
