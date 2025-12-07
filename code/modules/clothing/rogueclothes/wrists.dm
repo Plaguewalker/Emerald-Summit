@@ -272,3 +272,10 @@
 	desc = "A set of bracelets carved out of opaloise."
 	icon_state = "br_opal"
 	sellprice = 95
+/obj/item/clothing/wrists/roguetown/bracers/ogre
+	name = "thick bracers"
+	desc = "Normal humans can fit a leg through this hunk of steel."
+	sleeved = 'icons/roguetown/clothing/onmob/helpers/32x64/ogre_onmob_sleeves.dmi'
+	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
+	icon_state = "ogre_bracers"
+	allowed_race = OGRE_RACE_TYPES

@@ -107,7 +107,10 @@
 			victim.death()
 			return
 
-	if(!victim.clan && victim.mind && ishuman(victim) && VDrinker.generation > GENERATION_THINBLOOD && victim.blood_volume <= BLOOD_VOLUME_BAD)
+	if(!victim.clan && victim.mind && ishuman(victim) && victim.blood_volume <= BLOOD_VOLUME_BAD)
+		if(!VDrinker.can_convert(feedback = TRUE))
+			return
+
 		if(alert(src, "Would you like to sire a new spawn?", "THE CURSE OF KAIN", "MAKE IT SO", "I RESCIND") != "MAKE IT SO")
 			to_chat(src, span_warning("I decide [victim] is unworthy."))
 		else
@@ -133,10 +136,11 @@
 		ADD_TRAIT(src, TRAIT_REFUSED_VAMP_CONVERT, REF(sire))
 		return
 
-	fully_heal(TRUE)
+	fully_heal(TRUE, FALSE)
 	visible_message(span_danger("Some dark energy begins to flow from [sire] into [src]..."))
 	visible_message(span_red("[src] rises as a new spawn!"))
 	original_mind?.transfer_to(src, TRUE)
 	var/datum/antagonist/vampire/new_antag = new /datum/antagonist/vampire(incoming_clan = sire.clan, forced_clan = TRUE, generation = VDrinker.generation-1)
+	VDrinker?.thralls |= WEAKREF(src)
 	mind?.add_antag_datum(new_antag)
 	adjust_bloodpool(500)

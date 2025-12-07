@@ -193,6 +193,7 @@ Balloon Alert / Floating Text defines
 	/datum/species/dullahan,\
 	/datum/species/lamia,\
 	/datum/species/harpy,\
+	/datum/species/ogre,\
 )
 
 #define RACES_NOBILITY_ELIGIBLE \
@@ -204,6 +205,9 @@ Balloon Alert / Floating Text defines
 
 #define RACES_CHURCH_FAVORED \
 	/datum/species/aasimar,\
+
+#define RACES_OGRE_ROLES \
+	/datum/species/ogre,\
 
 #define RACES_APPOINTED_OUTCASTS \
     /datum/species/tieberian,\
@@ -239,6 +243,7 @@ Balloon Alert / Floating Text defines
     /datum/species/anthromorphsmall,\
   	/datum/species/dullahan,\
 	/datum/species/lamia,\
+
 
 
 #define RACES_NOBILITY_ELIGIBLE_UP list(RACES_NOBILITY_ELIGIBLE)
@@ -326,6 +331,11 @@ Balloon Alert / Floating Text defines
 	/datum/species/anthromorphsmall,\
 	/datum/species/kobold,\
 	/datum/species/goblinp,\
+)
+
+// used for large (32x64) clothes
+#define OGRE_RACE_TYPES list(\
+	/datum/species/ogre,\
 )
 
 // Non-dwarf non-kobold non-goblin mostly
@@ -510,6 +520,12 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CTAG_GUILDSMEN 		"CAT_GUILDSMEN"		// Guildsmen class - Handles Guildsmen class selector
 #define CTAG_NIGHTMAIDEN	"CAT_NIGHTMAIDEN"	// Bathhouse Attendant's aesthetic choices.
 #define CTAG_PRISONER "CAT_PRISONER"
+#define CTAG_OGRE			"CAT_OGRE"					// ogre classes - handles ogre class selector
+
+#define CTAG_HFT_LORD "CAT_HFT_LORD"  // Heartfelt Lord Class - Handles Heartfelt Lord class selector.
+#define CTAG_HFT_HAND "CAT_HFT_HAND"  // Heartfelt Hand Class - Handles Heartfelt Hand class selector.
+#define CTAG_HFT_KNIGHT "CAT_HFT_KNIGHT"  // Heartfelt Knight Class - Handles Heartfelt Knight class selector.
+#define CTAG_HFT_RETINUE "CAT_HFT_RETINUE"  // Heartfelt Retinue Class - Handles Heartfelt Retinue class selector.
 
 // List of mono-class categories. Only here for standardisation sake, but can be added on if desired.
 #define CTAG_DUNGEONEER		"CAT_DUNGEONEER"
@@ -566,6 +582,13 @@ GLOBAL_LIST_EMPTY(round_join_times)
 #define CLASS_CAT_KAZENGUN "Kazengun"
 #define CLASS_CAT_RACIAL "Race Exclusive" //Used for black oaks, grudgebearer dwarves, etc.
 
+//Migrant categories
+#define CLASS_CAT_HFT_COURT "Upper Court"
+#define CLASS_CAT_HFT_GUARD "House Guard"
+#define CLASS_CAT_HFT_WORKER "Workers"
+
+
+
 // Social rank defines
 #define SOCIAL_RANK_DIRT 1
 #define SOCIAL_RANK_PEASANT 2
@@ -598,3 +621,8 @@ Medical defines
 #define ARTERY_LIMB_BLEEDRATE 20	//This is used as a reference point for dynamic wounds, so it's better off as a define.
 #define CONSTITUTION_BLEEDRATE_MOD 0.1	//How much slower we'll be bleeding for every CON point. 0.1 = 10% slower.
 #define CONSTITUTION_BLEEDRATE_CAP 15	//The CON value up to which we get a bleedrate reduction.
+
+/*
+	Red Potion defines
+*/
+#define BLOOD_VOLUME_POTION_MAX 600
