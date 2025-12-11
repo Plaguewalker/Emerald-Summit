@@ -84,6 +84,13 @@
 		if (!my_crime)
 			my_crime = "crimes against the Crown"
 		add_bounty(H.real_name, bounty_total, FALSE, my_crime, bounty_poster)
+		H.change_stat("strength", 1)
+		H.change_stat("perception", 1)
+		H.change_stat("intelligence", 1)
+		H.change_stat("constitution", 1)
+		H.change_stat("endurance", 1)
+		H.change_stat("speed", 1)
+		H.change_stat("fortune", 1)
 	if(bounty_face_noface == "No")
 		var/race = H.dna.species
 		var/gender = H.gender
