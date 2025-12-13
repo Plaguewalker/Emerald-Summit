@@ -227,15 +227,30 @@ There are several things that need to be remembered:
 		var/offset_y = has_offset ? offset_features[g][2] : 0
 
 		if(has_offset)
+			// Must copy cached appearances before modifying pixel offsets to avoid permanently altering the cache
+			var/list/damage_overlays_copy = list()
 			for(var/mutable_appearance/M as anything in damage_overlays)
-				M.pixel_x += offset_x
-				M.pixel_y += offset_y
+				var/mutable_appearance/M_copy = new /mutable_appearance(M)
+				M_copy.pixel_x = M.pixel_x + offset_x
+				M_copy.pixel_y = M.pixel_y + offset_y
+				damage_overlays_copy += M_copy
+			damage_overlays = damage_overlays_copy
+
+			var/list/legdam_overlays_copy = list()
 			for(var/mutable_appearance/M as anything in legdam_overlays)
-				M.pixel_x += offset_x
-				M.pixel_y += offset_y
+				var/mutable_appearance/M_copy = new /mutable_appearance(M)
+				M_copy.pixel_x = M.pixel_x + offset_x
+				M_copy.pixel_y = M.pixel_y + offset_y
+				legdam_overlays_copy += M_copy
+			legdam_overlays = legdam_overlays_copy
+
+			var/list/armdam_overlays_copy = list()
 			for(var/mutable_appearance/M as anything in armdam_overlays)
-				M.pixel_x += offset_x
-				M.pixel_y += offset_y
+				var/mutable_appearance/M_copy = new /mutable_appearance(M)
+				M_copy.pixel_x = M.pixel_x + offset_x
+				M_copy.pixel_y = M.pixel_y + offset_y
+				armdam_overlays_copy += M_copy
+			armdam_overlays = armdam_overlays_copy
 
 		limb_overlaysa += damage_overlays
 		limb_overlaysb += legdam_overlays

@@ -727,7 +727,7 @@
 					aux.color = "#[draw_color]"
 
 		// Cache the base appearances
-		cached_base_appearances = .Copy()
+		cached_base_appearances = _list_copy(.)
 		limb_appearance_cache_key = new_cache_key
 
 		// Markings overlays (not cached - can vary)
