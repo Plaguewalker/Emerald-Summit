@@ -723,10 +723,10 @@
 				draw_color = SKIN_COLOR_ROT
 			if(owner && HAS_TRAIT(owner, TRAIT_DVERGR))
 				draw_color = SKIN_COLOR_SSHANNTYNLAN
-				if(draw_color)
-					limb.color = "#[draw_color]"
-					if(aux)
-						aux.color = "#[draw_color]"
+			if(draw_color)
+				limb.color = "#[draw_color]"
+				if(aux)
+					aux.color = "#[draw_color]"
 
 		// Cache the base appearances
 		cached_base_appearances = _list_copy(.)
