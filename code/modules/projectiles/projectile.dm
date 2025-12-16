@@ -115,6 +115,8 @@
 	var/ammo_type
 
 	var/arcshot = FALSE
+	var/diagonal_step = 0
+	var/diagonal_target_z = 0
 	var/poisontype
 	var/poisonamount
 	var/poisonfeel
@@ -132,6 +134,15 @@
 
 /obj/projectile/proc/Range()
 	range--
+	if(diagonal_step && diagonal_target_z && z != diagonal_target_z)
+		if((decayedRange - range) >= diagonal_step)
+			var/turf/T = locate(x, y, diagonal_target_z)
+			if(T)
+				trajectory_ignore_forcemove = TRUE
+				forceMove(T)
+				trajectory_ignore_forcemove = FALSE
+				if(trajectory)
+					trajectory.z = T.z
 	if(accuracy > 20) //so there is always a somewhat prevalent chance to hit the target, despite distance.
 		accuracy -= 10
 	if(range <= 0 && loc)
@@ -587,15 +598,27 @@
 /obj/projectile/proc/preparePixelProjectile(atom/target, atom/source, params, spread = 0)
 	var/turf/curloc = get_turf(source)
 	var/turf/targloc = get_turf(target)
+	var/turf/start_loc = curloc
+
 	if(targloc && curloc)
-		if(targloc.z > curloc.z)
-			var/turf/above = get_step_multiz(curloc, UP)
-			if(istype(above, /turf/open/transparent/openspace))
-				curloc = above
+		if(arcshot)
+			if(targloc.z > curloc.z)
+				var/turf/above = get_step_multiz(curloc, UP)
+				if(above)
+					curloc = above
+					start_loc = above
+			else if(targloc.z < curloc.z)
+				targloc = locate(targloc.x, targloc.y, curloc.z)
+		else
+			if(targloc.z != curloc.z)
+				var/dist = get_dist_euclidian(curloc, targloc)
+				diagonal_step = max(1, round(dist / 2))
+				diagonal_target_z = targloc.z
+
 	trajectory_ignore_forcemove = TRUE
-	forceMove(get_turf(source))
+	forceMove(start_loc)
 	trajectory_ignore_forcemove = FALSE
-	starting = get_turf(source)
+	starting = start_loc
 	original = target
 	if(targloc || !params)
 		yo = targloc.y - curloc.y
