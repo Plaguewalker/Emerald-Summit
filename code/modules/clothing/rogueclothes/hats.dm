@@ -944,7 +944,7 @@
 /obj/item/clothing/head/roguetown/helmet/sallet/thorns
 	name = "holysteel thorns"
 	icon_state = "holythorns"
-	desc = "A crown of thorns made with silver and steel wires, it protects your head and ears while it pinchs them."
+	desc = "A crown of thorns made with silver and steel wires. It protects your head and ears despite pricking them."
 	max_integrity = 225
 	smeltresult = /obj/item/ingot/steel
 	body_parts_covered = HEAD|HAIR|EARS
