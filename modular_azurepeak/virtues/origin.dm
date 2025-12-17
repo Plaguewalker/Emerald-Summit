@@ -84,9 +84,10 @@
 
 /datum/virtue/origin/raneshen
 	name = "Ranesheni"
-	desc = "I originate from the lush valleys and harsh badlands of Raneshen. Home to the zealous sun elves, the region sits at the gateway between the East and West. Recently engulfed in a violent holy war between the followers of the Old God and the Solarin.<br>"
+	desc = "I originate from the lush valleys and harsh badlands of Raneshen. Home to the zealous sun elves, the region sits at the gateway between the East and West. Recently engulfed in a violent holy war between the followers of the Old God and the holy warriors of Astrata.<br>"
 	restricted = TRUE
 	races = list(/datum/species/elf/dark,
+				/datum/species/elf/sun,
 				/datum/species/halforc,
 				/datum/species/goblinp,
 				/datum/species/lupian,
