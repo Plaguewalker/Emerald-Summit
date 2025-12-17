@@ -51,7 +51,7 @@
 	var/classes = list("Old Magick", "Godsblood", "Mystagogue")
 	var/classchoice = input(H, "How do your powers manifest?", "THE OLD WAYS") as anything in classes
 
-	var/shapeshifts = list("Zad", "Cat", "Cat (Black)", "Bat", "Lesser Volf")
+	var/shapeshifts = list("Zad", "Cat", "Cat (Black)", "Bat", "Lesser Volf, Lesser Vernard, Lesser Rous, Lesser Cabbit")
 	var/shapeshiftchoice = input(H, "What form does your second skin take?", "THE OLD WAYS") as anything in shapeshifts
 
 	switch (classchoice)
