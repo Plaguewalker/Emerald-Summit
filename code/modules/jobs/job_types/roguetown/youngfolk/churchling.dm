@@ -32,6 +32,7 @@
 	category_tags = list(CTAG_CHURCHLING)
 	cmode_music = 'sound/music/combat_holy.ogg'
 
+	traits_applied = list(TRAIT_CIVILIZEDBARBARIAN, TRAIT_DODGEEXPERT, TRAIT_CLERGY)
 	subclass_stats = list(
 		STATKEY_SPD = 2,
 		STATKEY_PER = 1,
@@ -66,6 +67,7 @@
 
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = FALSE, devotion_limit = CLERIC_REQ_1)	//Capped to T1 miracles.
+	H.miracle_points = max(H.miracle_points, 5)
 	
 	// -- Start of section for god specific bonuses --
 	if(H.patron?.type == /datum/patron/inhumen/graggar) // not going to lie, I have no idea why you're even allowed to be a heretic churchling but go off king

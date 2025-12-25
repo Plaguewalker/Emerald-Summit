@@ -222,6 +222,20 @@ var/global/list/PATRON_ARTIFACTS = list(
 			return TRUE
 	return FALSE
 
+/proc/_is_churchling(mob/living/carbon/human/H)
+	if(!H || !H.mind) return FALSE
+	var/list/cands = list()
+	if(("assigned_job" in H.mind.vars) && istype(H.mind.vars["assigned_job"], /datum/job))
+		var/datum/job/J = H.mind.vars["assigned_job"]
+		if(("title" in J.vars) && istext(J.vars["title"])) cands += lowertext("[J.vars["title"]]")
+		if(("name"  in J.vars) && istext(J.vars["name" ])) cands += lowertext("[J.vars["name"]]")
+	if(("assigned_role" in H.mind.vars) && istext(H.mind.vars["assigned_role"])) cands += lowertext("[H.mind.vars["assigned_role"]]")
+	if(("special_role" in H.mind.vars)  && istext(H.mind.vars["special_role"]))  cands += lowertext("[H.mind.vars["special_role"]]")
+	for(var/txt in cands)
+		if(findtext(txt, "churchling"))
+			return TRUE
+	return FALSE
+
 //T0-T4 or T1-T4 probably the first one coz its related to spells
 /proc/_tier_from_patrons(spell_path)
 	if(!ispath(spell_path, /obj/effect/proc_holder/spell)) return 0
@@ -338,6 +352,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 // I forgot what it does but probably it unlocks shunned relations
 /proc/_shunned_relations_unlocked(mob/living/carbon/human/H)
 	if(!H) return FALSE
+	if(_is_churchling(H)) return TRUE
 	build_inhumen_patrons_index()
 	if(!islist(H.patron_relations)) return FALSE
 	for(var/n in inhumen_patrons_index)
@@ -412,6 +427,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 		my_patron = "[H.devotion.patron.vars["name"]]"
 
 	var/is_templar = _is_templar(H)
+	var/is_churchling = _is_churchling(H)
 
 	// I-know-what-you-have-already
 	var/list/already_types = list()
@@ -448,6 +464,7 @@ var/global/list/PATRON_ARTIFACTS = list(
 			var/owner_rel = (owner_name == my_patron) ? 4 : (H.patron_relations && (owner_name in H.patron_relations) ? H.patron_relations[owner_name] : 0)
 			var/max_allowed = allowed_tier_by_relation(owner_rel)
 			if(is_templar) max_allowed = min(max_allowed, 2)
+			if(is_churchling) max_allowed = min(max_allowed, 1)
 
 			if(tier > max_allowed) continue
 
@@ -703,8 +720,9 @@ var/global/list/PATRON_ARTIFACTS = list(
 	html += "<hr>" + jointext(nav_bits, " | ") + "<br>"
 
 	var/is_templar = _is_templar(H)
-	var/rel_cap = is_templar ? 2 : 4
-	// ***********************************************
+	var/is_churchling = _is_churchling(H)
+	var/rel_cap = is_templar ? 2 : (is_churchling ? 1 : 4)
+	//CHURCHLING PART ENDS
 
 	// - Relations content STARTS HERE OH MY GOD I HATE BLANCE
 	if(src.current_rel_tab == "ten" || (src.current_rel_tab == "shunned" && _shunned_relations_unlocked(H)))
@@ -1087,7 +1105,9 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 		// ***************  hard cap templar relations at 2 *****
 		if(_is_templar(H) && cur >= 2) { open_research_ui(H); return }
-		// ***********************************************************
+		//CHURCHLING PART STARTS
+		if(_is_churchling(H) && cur >= 1) { open_research_ui(H); return }
+		//CHURCHLING PART ENDS
 
 		if(cur >= 4) { open_research_ui(H); return }
 
@@ -1095,7 +1115,9 @@ var/global/list/PATRON_ARTIFACTS = list(
 
 		// *************** block upgrade above 2 for templars *****
 		if(_is_templar(H) && next > 2) { open_research_ui(H); return }
-		// **************************************************************
+		//CHURCHLING PART STARTS
+		if(_is_churchling(H) && next > 1) { open_research_ui(H); return }
+		//CHURCHLING PART ENDS
 
 		var/cost = (next == 1) ? 1 : (next == 2) ? 2 : (next == 3) ? 3 : 4
 		if(H.personal_research_points < cost) { open_research_ui(H); return }
@@ -1193,6 +1215,10 @@ var/global/list/PATRON_ARTIFACTS = list(
 		var/max_allowed = allowed_tier_by_relation(owner_rel)
 		if(_is_templar(H))
 			max_allowed = min(max_allowed, 2)
+		//CHURCHLING PART STARTS
+		if(_is_churchling(H))
+			max_allowed = min(max_allowed, 1)
+		//CHURCHLING PART ENDS
 
 		if(tier > max_allowed)
 			qdel(S)
@@ -1333,10 +1359,10 @@ var/global/list/PATRON_ARTIFACTS = list(
 		to_chat(H, span_notice("Shunned knowledges unlocked."))
 		open_research_ui(H); return
 
-	// --- Upgrade: Diagnose (1 MP) ---
+	// --- Upgrade: Diagnose (2 MP) -
 	if(href_list["upgrade_diag"])
 		if(!istype(H) || !H?.mind) { open_upgrade_ui(H); return }
-		if(H.miracle_points < 1) { to_chat(H, span_warning("Not enough Miracle Points.")); open_upgrade_ui(H); return }
+		if(H.miracle_points < 2) { to_chat(H, span_warning("Not enough Miracle Points.")); open_upgrade_ui(H); return }
 		var/obj/effect/proc_holder/spell/baseS = null
 		var/obj/effect/proc_holder/spell/greaterS = null
 		for(var/obj/effect/proc_holder/spell/S in H.mind.spell_list)
@@ -1348,8 +1374,8 @@ var/global/list/PATRON_ARTIFACTS = list(
 		else qdel(baseS)
 		var/obj/effect/proc_holder/spell/invoked/diagnose/greater/N = new
 		H.mind.AddSpell(N)
-		H.miracle_points = max(0, H.miracle_points - 1)
-		to_chat(H, span_notice("Your Diagnose has been upgraded to Greater Diagnose (-1 MP)."))
+		H.miracle_points = max(0, H.miracle_points - 2)
+		to_chat(H, span_notice("Your Diagnose has been upgraded to Greater Diagnose (-2 MP)."))
 		open_upgrade_ui(H); return
 
 // DONT CHANGE IT PLEASE1111

@@ -85,7 +85,7 @@
 	if(!H || !H.mind) return FALSE
 	if(!HAS_TRAIT(H, TRAIT_CLERGY)) return FALSE
 	var/txt = lowertext("[H.mind.assigned_role]")
-	return findtext(txt, "druid") || findtext(txt, "acolyte") || findtext(txt, "templar")
+	return findtext(txt, "druid") || findtext(txt, "acolyte") || findtext(txt, "churchling")
 
 /datum/devotion/proc/update_devotion(dev_amt, prog_amt, silent = FALSE)
 	devotion = clamp(devotion + dev_amt, 0, max_devotion)
@@ -124,7 +124,7 @@
 /datum/devotion/proc/try_add_spells(silent = FALSE)
 	if(holder?.mind)
 		var/role = lowertext("[holder.mind.assigned_role]")
-		if(findtext(role, "druid") || findtext(role, "acolyte") || findtext(role, "templar"))
+		if(findtext(role, "druid") || findtext(role, "acolyte") || findtext(role, "churchling"))
 			return FALSE
 	if(!holder || !holder.mind || !patron)
 		return FALSE
