@@ -204,6 +204,12 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/ooc_notes
 	var/ooc_notes_display
 
+	var/rumour
+	var/rumour_display
+	
+	var/gossip
+	var/gossip_display
+
 	var/tail_type = /obj/item/bodypart/lamian_tail/lamian_tail
 	var/tail_color = "ffffff"
 	var/tail_markings_color = "ffffff"
@@ -1886,6 +1892,46 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						ShowChoices(user)
 						return
 					ooc_notes = new_ooc_notes
+									if("rumours")
+					to_chat(user, "<span class='notice'>["<span class='bold'>Flavortext should not include nonphysical nonsensory attributes such as backstory or the character's internal thoughts.</span>"]</span>")
+					var/new_rumour = input(user, "Input what others think of your character.", "Rumours", rumour) as message|null
+					if(new_rumour == null)
+						return
+					if(new_rumour == "")
+						rumour = null
+						ShowChoices(user)
+						return
+					rumour = new_rumour
+						ShowChoices(user)
+						return
+					rumour = new_rumour
+					var/ft = rumour
+					ft = html_encode(ft)
+					ft = replacetext(parsemarkdown_basic(ft), "\n", "<BR>")
+					rumour_display = ft
+					is_legacy = FALSE
+					to_chat(user, "<span class='notice'>Successfully updated rumours</span>")
+					log_game("[user] has set their rumours.")
+				if("gossip")
+					to_chat(user, "<span class='notice'>["<span class='bold'>Flavortext should not include nonphysical nonsensory attributes such as backstory or the character's internal thoughts.</span>"]</span>")
+					var/new_rumour_noble = input(user, "Input what other Nobles think of your character.", "gossip", gossip) as message|null
+					if(new_rumour_noble == null)
+						return
+					if(new_rumour_noble == "")
+						gossip = null
+						ShowChoices(user)
+						return
+					gossip = new_rumour_noble
+						ShowChoices(user)
+						return
+					gossip = new_rumour_noble
+					var/ft = gossip
+					ft = html_encode(ft)
+					ft = replacetext(parsemarkdown_basic(ft), "\n", "<BR>")
+					gossip_display = ft
+					is_legacy = FALSE
+					to_chat(user, "<span class='notice'>Successfully updated gossip</span>")
+					log_game("[user] has set their gossip.")
 
 					var/ooc = ooc_notes
 					ooc = html_encode(ooc)
