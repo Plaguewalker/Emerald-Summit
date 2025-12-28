@@ -67,10 +67,10 @@ GLOBAL_VAR_INIT(year_integer, text2num(year)) // = 2013???
 		var/msg = ""
 		if(rumour && length(rumour))
 			msg += "<b>You recall what you heard around Town about [src]...</b><br>[rumour]"
-		if((HAS_TRAIT(usr, TRAIT_NOBLE) || HAS_TRAIT(usr, TRAIT_ROYALSERVANT)) || observer_privilege && length(rumour_noble))
+		if((HAS_TRAIT(usr, TRAIT_NOBLE) || HAS_TRAIT(usr, TRAIT_ROYALSERVANT)) || observer_privilege && length(gossip))
 			if(msg) 
 				msg += "<br><br>"
-			msg += "<b>You recall what the other Blue-bloods hushed about [src]...</b><br>[rumour_noble]"
+			msg += "<b>You recall what the other Blue-bloods hushed about [src]...</b><br>[gossip]"
 		if(msg)
 			to_chat(usr, "<span class='info'>[msg]</span>")
 		return

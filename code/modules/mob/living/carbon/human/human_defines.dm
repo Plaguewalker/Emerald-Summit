@@ -131,8 +131,8 @@
 	var/ooc_notes_display = null
 	var/rumour = null
 	var/rumour_display = null
-	var/rumour_noble = null
-	var/rumour_noble_display = null
+	var/gossip = null
+	var/gossip_display = null
 	var/ooc_extra_link
 	var/ooc_extra
 	var/is_legacy = FALSE

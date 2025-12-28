@@ -210,9 +210,6 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/gossip
 	var/gossip_display
 
-	/// backward-compatible alias used by some examine code
-	var/rumour_noble
-	var/rumour_noble_display
 
 	var/tail_type = /obj/item/bodypart/lamian_tail/lamian_tail
 	var/tail_color = "ffffff"
@@ -1953,8 +1950,6 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					g = html_encode(g)
 					g = replacetext(parsemarkdown_basic(g), "\n", "<BR>")
 					gossip_display = g
-					rumour_noble = gossip
-					rumour_noble_display = gossip_display
 					is_legacy = FALSE
 					to_chat(user, "<span class='notice'>Successfully updated Noble Gossip</span>")
 					log_game("[user] has set their noble gossip'.")
@@ -2916,11 +2911,11 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 
 	character.ooc_notes_display = ooc_notes_display
 
-	// Rumours / Noble gossip
+	
 	character.rumour = rumour
 	character.rumour_display = rumour_display
-	character.rumour_noble = gossip
-	character.rumour_noble_display = gossip_display
+	character.gossip = gossip
+	character.gossip_display = gossip_display
 
 	character.is_legacy = is_legacy
 
