@@ -1748,6 +1748,10 @@
 	nodismemsleeves = TRUE
 	inhand_mod = TRUE
 
+/obj/item/clothing/cloak/graggar/ComponentInitialize()
+	. = ..()
+	AddComponent(/datum/component/storage/concrete/roguetown/cloak)
+
 /obj/item/clothing/cloak/graggar/pickup(mob/living/user)
 	if(!HAS_TRAIT(user, TRAIT_HORDE))
 		to_chat(user, "<font color='red'>UNWORTHY HANDS TOUCHING THIS CLOAK, CEASE OR BE RENDED ASUNDER!</font>")
