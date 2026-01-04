@@ -39,7 +39,7 @@
 /// Research points true vampires get per CC diablerie.
 #define RP_PER_CC_DIABLERIE 2
 /// Research points true vampires get for murdering an ex-CC
-#define RP_PER_CC_MURDER 2
+#define RP_PER_CC_MURDER 1
 
 GLOBAL_LIST_INIT(vamp_generation_to_text, list(
 	"Thin Blood",
