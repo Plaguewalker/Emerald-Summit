@@ -243,7 +243,7 @@
 		S.falloff = (falloff ? falloff : FALLOFF_SOUNDS)
 
 		// Nearfield attenuation
-		if(distance <= 1)
+		if(distance < 1)
 			var/nearfield_factor = 1/sqrt(2)
 			S.volume = round(S.volume * nearfield_factor)
 
