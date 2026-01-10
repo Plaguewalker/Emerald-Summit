@@ -96,9 +96,9 @@
 /datum/status_effect/signal_horn/servant_bell
 	id = "servant bell indicator"
 	duration = 15 SECONDS
-	alert_type = /atom/movable/screen/alert/status_effect/servant_bell
+	//alert_type = /atom/movable/screen/alert/status_effect/servant_bell
 
 /atom/movable/screen/alert/status_effect/servant_bell
 	name = "Servant Bell"
 	desc = "I've been summoned by the bell."
-	icon_state = "servant_bell"
+	//icon_state = "servant_bell"
