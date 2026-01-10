@@ -164,14 +164,13 @@ GLOBAL_LIST_INIT(character_flaws, list(
 
 /datum/charflaw/blind
 	name = "Blind"
-	desc = "I am visually impaired, ranging from poor sight to total blindness."
+	desc = "Shadows creep across my vision, some long and dark, others a hollow void.”
 	var/has_prompted = FALSE
 	var/prompt_in_progress = FALSE
-	/// 1=Moderate (nearsighted 1), 2=Severe (nearsighted 2), 3=Fully Blind (blind)
 	var/chosen_severity_level = 1
 	var/last_apply = 0
-	var/static/list/severity_choices = list("Moderate", "Severe", "Fully Blind")
-	var/static/list/severity_choice_to_level = list("Moderate" = 1, "Severe" = 2, "Fully Blind" = 3)
+	var/static/list/severity_choices = list("Moderate", "Severe", "Complete")
+	var/static/list/severity_choice_to_level = list("Moderate" = 1, "Severe" = 2, "Complete" = 3)
 
 /datum/charflaw/blind/flaw_on_life(mob/user)
 	if(!ishuman(user))
