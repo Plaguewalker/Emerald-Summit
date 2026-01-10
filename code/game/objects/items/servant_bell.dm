@@ -6,7 +6,7 @@
 	detail_tag = "_detail"
 	slot_flags = ITEM_SLOT_HIP
 	w_class = WEIGHT_CLASS_SMALL
-	detail_color = CLOTHING_SCARLET
+	detail_color = CLOTHING_BLUE
 
 	dropshrink = 0.7
 	grid_height = 32
