@@ -717,7 +717,7 @@ GLOBAL_LIST_EMPTY(loadout_items)
     name = "Maid's Dress"
     path = /obj/item/clothing/suit/roguetown/shirt/dress/maid
 
-/datum/loadout_item/maiddress
+/datum/loadout_item/maidapron
     name = "Maid's Apron"
     path = /obj/item/clothing/cloak/apron/maid
 
