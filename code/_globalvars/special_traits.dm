@@ -58,6 +58,8 @@ GLOBAL_LIST_INIT(special_traits, build_special_traits())
 		J = SSjob.GetJob(character.job)
 	var/list/skeleton_jobs = typesof(/datum/job/roguetown/greater_skeleton)
 	if(J.type in skeleton_jobs) // Skellie Bros get no Hoes
+		if(character.charflaw)
+			QDEL_NULL(character.charflaw)
 		return
 
 	var/virtuous = FALSE
