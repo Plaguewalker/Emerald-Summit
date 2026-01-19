@@ -327,8 +327,8 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		SSticker.regentmob = null
 		var/dispjob = mind.assigned_role
 		removeomen(OMEN_NOLORD)
-		say("By the authority of the gods, I pronounce you Ruler of all Scarlet Reach!")
-		priority_announce("[real_name] the [dispjob] has named [HU.real_name] the inheritor of SCARLET REACH!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/bell.ogg')
+		say("By the authority of the gods, I pronounce you Ruler of all Emerald Summit!")
+		priority_announce("[real_name] the [dispjob] has named [HU.real_name] the inheritor of EMERALD SUMMIT!", title = "Long Live [HU.real_name]!", sound = 'sound/misc/bell.ogg')
 		var/datum/job/roguetown/nomoredukes = SSjob.GetJob("Grand Duke")
 		if(nomoredukes)
 			nomoredukes.total_positions = -1000 //We got what we got now.
@@ -402,7 +402,7 @@ GLOBAL_LIST_EMPTY(heretical_players)
 	if(!(devotion && devotion.devotion >= 500))
 		to_chat(src, span_warning("I need more devotion to channel Her voice! (500 required)"))
 		return FALSE
-	var/inputty = input("Make an announcement", "SCARLET REACH") as text|null
+	var/inputty = input("Make an announcement", "EMERALD SUMMIT") as text|null
 	if(inputty)
 		if(!istype(get_area(src), /area/rogue/indoors/town/church/chapel))
 			to_chat(src, span_warning("I need to do this from the chapel."))

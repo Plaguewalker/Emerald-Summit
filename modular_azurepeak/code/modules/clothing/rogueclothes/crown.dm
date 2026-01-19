@@ -1,7 +1,7 @@
 #define GARRISON_CROWN_COLOR "#C2A245"
 
 /obj/item/clothing/head/roguetown/crown/serpcrown
-	name = "Crown of Scarlet Reach"
+	name = "Crown of Emerald Summit"
 	article = "the"
 	desc = "Heavy is the head that wears this."
 	icon_state = "serpcrown"
@@ -24,7 +24,7 @@
 	become_hearing_sensitive()
 
 /obj/item/clothing/head/roguetown/crown/serpcrown/proc/anti_stall()
-	src.visible_message(span_warning("The Crown of Scarlet Reach crumbles to dust, the ashes spiriting away in the direction of the Keep."))
+	src.visible_message(span_warning("The Crown of Emerald Summit crumbles to dust, the ashes spiriting away in the direction of the Keep."))
 	SSroguemachine.crown = null //Do not harddel.
 	qdel(src) //Anti-stall
 

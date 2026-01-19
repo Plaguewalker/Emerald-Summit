@@ -136,7 +136,7 @@
 		..()
 		return
 
-	var/picked_name = input(user, "Choose a Heraldry", "SCARLET REACH", name) as null|anything in sortList(istates)
+	var/picked_name = input(user, "Choose a Heraldry", "EMERALD SUMMIT", name) as null|anything in sortList(istates)
 	if(!picked_name)
 		picked_name = "none"
 	var/mutable_appearance/M = mutable_appearance('icons/roguetown/weapons/shield_heraldry.dmi', "[icon_state]_[picked_name]")
@@ -450,7 +450,7 @@
 
 /obj/item/rogueweapon/shield/championbuckler // unique, better buckler for the champion
 	name = "'Order'"
-	desc = "A special buckler shield made out of blacksteel for the realm's champion, adorned with the Scarlet Reach crest."
+	desc = "A special buckler shield made out of blacksteel for the realm's champion, adorned with the Emerald Summit crest."
 	icon_state = "champbuckler"
 	icon = 'icons/roguetown/weapons/shields32.dmi'
 	slot_flags = ITEM_SLOT_HIP | ITEM_SLOT_BACK

@@ -131,7 +131,7 @@
 
 	log_game("The round has ended.")
 
-	to_chat(world, "<BR><BR><BR><span class='reallybig'>So ends this tale on Scarlet Reach.</span>")
+	to_chat(world, "<BR><BR><BR><span class='reallybig'>So ends this tale on Emerald Summit.</span>")
 	get_end_reason()
 
 	var/list/key_list = list()
@@ -227,7 +227,7 @@
 	if(vampire_werewolf() == "vampire")
 		end_reason = "When the Vampires finished sucking the town dry, they moved on to the next one."
 	if(vampire_werewolf() == "werewolf")
-		end_reason = "The Werevolves formed an unholy clan, marauding Scarlet Reach until the end of its daes."
+		end_reason = "The Werevolves formed an unholy clan, marauding Emerald Summit until the end of its daes."
 
 	if(SSmapping.retainer.head_rebel_decree)
 		end_reason = "The peasant rebels took control of the throne, hail the new community!"

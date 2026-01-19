@@ -46,7 +46,7 @@
 		if(owner?.current)
 			owner.current.playsound_local(get_turf(owner.current), 'sound/misc/triumph.ogg', 100, FALSE, pressure_affected = FALSE)
 	else
-		to_chat(owner.current, span_redtext("I've failed to secure a marriage into the throne of Scarlet Reach! My house will be disappointed!"))
+		to_chat(owner.current, span_redtext("I've failed to secure a marriage into the throne of Emerald Summit! My house will be disappointed!"))
 		to_chat(world, span_redtext("[owner.current.real_name] failed to secure a marriage with the throne!"))
 		if(owner?.current)
 			owner.current.playsound_local(get_turf(owner.current), 'sound/misc/fail.ogg', 100, FALSE, pressure_affected = FALSE)

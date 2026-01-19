@@ -21,7 +21,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	var/base_name
 	var/sub_name
 	var/psydonic = FALSE
-	var/origin = "Scarlet Reach"
+	var/origin = "Emerald Summit"
 	var/region
 	var/origin_default = /datum/virtue/origin/racial/reach
 	var/max_age = 75

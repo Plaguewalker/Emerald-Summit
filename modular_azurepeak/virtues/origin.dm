@@ -5,7 +5,7 @@
 
 /datum/virtue/origin/racial/reach
 	name = "Aemerlond - Readtun"
-	desc = "A once-bustling trade center and the capitol of Aemerlond, also colloquially known as the Scarlet Reach. It is now devastated in the wake of the Rosa Wars and the Mad Duke's reign. Considered the armpit of the world."
+	desc = "A once-bustling trade center and the capitol of Aemerlond, also colloquially known as the Emerald Summit. It is now devastated in the wake of the Rosa Wars and the Mad Duke's reign. Considered the armpit of the world."
 	custom_text = "Grants free language."
 	region_title = "Readtun"
 	extra_language = TRUE

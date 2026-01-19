@@ -22,11 +22,11 @@ GLOBAL_VAR(lordsecondary)
 		return
 	var/prim
 	var/sec
-	var/choice = input(src, "Choose a Primary Color", "SCARLET REACH") as anything in colorlist
+	var/choice = input(src, "Choose a Primary Color", "EMERALD SUMMIT") as anything in colorlist
 	if(choice)
 		prim = colorlist[choice]
 		colorlist -= choice
-	choice = input(src, "Choose a Secondary Color", "SCARLET REACH") as anything in colorlist
+	choice = input(src, "Choose a Secondary Color", "EMERALD SUMMIT") as anything in colorlist
 	if(choice)
 		sec = colorlist[choice]
 	if(!prim || !sec)
@@ -42,7 +42,7 @@ GLOBAL_VAR(lordsecondary)
 		GLOB.lordcolor -= T
 
 /proc/lord_color_default()
-	GLOB.lordprimary = "#bb0a1e" //SCARLET
+	GLOB.lordprimary = "#045217" //EMERALD
 	GLOB.lordsecondary = "#2b292e" //BLACK
 	for(var/obj/O in GLOB.lordcolor)
 		O.lordcolor(GLOB.lordprimary,GLOB.lordsecondary)

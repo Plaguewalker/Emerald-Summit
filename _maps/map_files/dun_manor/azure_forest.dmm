@@ -926,7 +926,7 @@
 /area/rogue/under/town/basement)
 "hx" = (
 /obj/structure/fluff/signage{
-	name = "SCARLET REACH - EAST"
+	name = "EMERALD SUMMIT - EAST"
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods)
@@ -4388,7 +4388,7 @@
 /area/rogue/under/cavewet/bogcaves)
 "Jk" = (
 /obj/structure/fluff/signage{
-	name = "SCARLET REACH - NORTH"
+	name = "EMERALD SUMMIT - NORTH"
 	},
 /turf/open/floor/rogue/dirt,
 /area/rogue/outdoors/woods)
@@ -5028,7 +5028,7 @@
 /area/rogue/under/cave/dungeon1/gethsmane/inner)
 "OX" = (
 /obj/structure/fluff/signage{
-	name = "SCARLET REACH - EAST"
+	name = "EMERALD SUMMIT - EAST"
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/mountains)
@@ -6377,7 +6377,7 @@
 /area/rogue/under/cave/dungeon1/gethsmane)
 "ZL" = (
 /obj/structure/fluff/signage{
-	name = "SCARLET REACH - EAST"
+	name = "EMERALD SUMMIT - EAST"
 	},
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/mountains)

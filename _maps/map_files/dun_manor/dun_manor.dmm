@@ -6379,7 +6379,7 @@
 /area/rogue/indoors)
 "enF" = (
 /obj/structure/fluff/signage{
-	name = "SCARLET REACH - NORTH"
+	name = "EMERALD SUMMIT - NORTH"
 	},
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/rtfield)
@@ -29997,7 +29997,7 @@
 /area/rogue/indoors/town/manor)
 "uXm" = (
 /obj/structure/fluff/walldeco/goblet{
-	name = "Scarlet Pints Inn and Bath"
+	name = "Emerald Pints Inn and Bath"
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/tavern)
