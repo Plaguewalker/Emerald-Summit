@@ -40,7 +40,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 
 	var/initializations_finished_with_no_players_logged_in	//I wonder what this could be?
 
-	// The type of the last subsystem to be process()'d.
+	// The type of the last subsystem to be process()'d. Also used to track currently initializing subsystem.
 	var/last_type_processed
 
 	var/datum/controller/subsystem/queue_head //Start of queue linked list
@@ -192,8 +192,10 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		var/log_msg = "INIT-START: [SS.name]"
 		to_chat_immediate(world, span_boldannounce(log_msg))
 		log_world(log_msg)
+		last_type_processed = SS
 		SS.Initialize(REALTIMEOFDAY)
 		CHECK_TICK
+	last_type_processed = null //Clearing this for hygiene.
 	current_ticklimit = TICK_LIMIT_RUNNING
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
@@ -228,7 +230,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	if(isnull(old_runlevel))
 		old_runlevel = "NULL"
 
-	testing("MC: Runlevel changed from [old_runlevel] to [new_runlevel]")
+	to_chat_immediate(world, "MC: Runlevel changed from [old_runlevel] to [new_runlevel]")
 	current_runlevel = log(2, new_runlevel) + 1
 	if(current_runlevel < 1)
 		CRASH("Attempted to set invalid runlevel: [new_runlevel]")
@@ -600,7 +602,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 		statclick = new/obj/effect/statclick/debug(null, "Initializing...", src)
 
 	stat("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%))")
-	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (Iteration:[Master.iteration])"))
+	stat("Master Controller:", statclick.update("(TickRate:[Master.processing]) (Iteration:[Master.iteration])[isnull(current_runlevel) ? " (SS_INIT:[last_type_processed])" : null]"))
 
 /datum/controller/master/StartLoadingMap()
 	//disallow more than one map to load at once, multithreading it will just cause race conditions
