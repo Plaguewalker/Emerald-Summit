@@ -403,10 +403,6 @@
 				contents += " / Guild's Tax: [SStreasury.queens_tax*100]%</center><BR>"
 				contents += "<center>Auto Export Stockpile Above: "
 				contents += "<a href='?src=\ref[src];changeautoexport=1'>[SStreasury.autoexport_percentage * 100]%</a></center><BR>"
-/*				var/scriptext = "FALSE"
-				if(SStreasury.allow_scrip)
-					scriptext = "TRUE"
-				contents += "<center>Allow Marks Conversion:<a href='?src=\ref[src];allowscrip=1'>[scriptext]</a></center><BR>" */ //Mint Rework i
 				var/selection = "<center>Categories: "
 				for(var/category in categories)
 					if(category == current_category)
