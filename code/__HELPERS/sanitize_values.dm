@@ -44,7 +44,7 @@
 				return default
 	return default
 
-/proc/sanitize_hexcolor(color, desired_format=6, include_crunch=0, default)
+/proc/sanitize_hexcolor(color, desired_format=6, include_crunch=TRUE, default)
 	var/crunch = include_crunch ? "#" : ""
 	if(!istext(color))
 		color = ""
