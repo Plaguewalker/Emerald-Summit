@@ -52,9 +52,9 @@ SUBSYSTEM_DEF(mapping)
 /datum/controller/subsystem/mapping/New()
 	. = ..()
 #ifdef FORCE_MAP
-		config = load_map_config(FORCE_MAP)
+	config = load_map_config(FORCE_MAP)
 #else
-		config = load_map_config(error_if_missing = FALSE)
+	config = load_map_config(error_if_missing = FALSE)
 #endif
 
 /datum/controller/subsystem/mapping/Initialize(timeofday)
