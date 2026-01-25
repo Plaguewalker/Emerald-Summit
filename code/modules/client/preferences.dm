@@ -85,15 +85,14 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/backpack = DBACKPACK				//backpack type
 	var/jumpsuit_style = PREF_SUIT		//suit/skirt
 	var/hairstyle = "Bald"				//Hair type
-	var/hair_color = "000"				//Hair color
+	var/hair_color = "#000000"				//Hair color
 	var/facial_hairstyle = "Shaved"	//Face hair type
-	var/facial_hair_color = "000"		//Facial hair color
+	var/facial_hair_color = "#000000"		//Facial hair color
 	var/skin_tone = "caucasian1"		//Skin color
-	var/eye_color = "000"				//Eye color
+	var/eye_color = "#000000"				//Eye color
 	var/extra_language = "None" // Extra language
-	var/voice_color = "a0a0a0"
+	var/voice_color = "#a0a0a0"
 	var/voice_pitch = 1
-	var/detail_color = "000"
 	var/datum/species/pref_species = new /datum/species/human/northern()	//Mutant race
 	var/static/datum/species/default_species = new /datum/species/human/northern()
 	var/datum/patron/selected_patron
@@ -190,7 +189,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	// PATREON
 	// Vrell - I fucking hate how inconsistent the variable style is for this shit. underscores? all lowercase? camelcase? 
-	var/patreon_say_color = "ff7a05"
+	var/patreon_say_color = "#ff7a05"
 	var/patreon_say_color_enabled = FALSE
 	// END PATREON
 
@@ -220,8 +219,8 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 
 	var/tail_type = /obj/item/bodypart/lamian_tail/lamian_tail
-	var/tail_color = "ffffff"
-	var/tail_markings_color = "ffffff"
+	var/tail_color = "#ffffff"
+	var/tail_markings_color = "#ffffff"
 
 	/// Assoc list of culinary preferences, where the key is the type of the culinary preference, and value is food/drink typepath
 	var/list/culinary_preferences = list()
@@ -1768,7 +1767,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					return
 
 				if("voice")
-					var/new_voice = input(user, "Choose your character's voice color:", "Character Preference","#"+voice_color) as color|null
+					var/new_voice = input(user, "Choose your character's voice color:", "Character Preference", voice_color) as color|null
 					if(new_voice)
 						if(color_hex2num(new_voice) < 230)
 							to_chat(user, "<font color='red'>This voice color is too dark for mortals.</font>")
@@ -1825,7 +1824,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 						voice_pitch = new_voice_pitch
 
 				if("highlight_color")
-					var/new_color = color_pick_sanitized(user, "Choose your character's nickname highlight color:", "Character Preference","#"+highlight_color)
+					var/new_color = color_pick_sanitized(user, "Choose your character's nickname highlight color:", "Character Preference", highlight_color)
 					if(new_color)
 						highlight_color = sanitize_hexcolor(new_color)
 				if("headshot")
@@ -2374,30 +2373,30 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							features["body_size"] = new_body_size
 
 				if("tail_color")
-					var/new_tail_color = color_pick_sanitized(user, "Choose your character's tail color:", "Character Preference", "#"+tail_color)
+					var/new_tail_color = color_pick_sanitized(user, "Choose your character's tail color:", "Character Preference",  tail_color)
 					if(new_tail_color)
 						tail_color = sanitize_hexcolor(new_tail_color)
 
 				if("tail_markings_color")
-					var/new_tail_markings_color = color_pick_sanitized(user, "Choose your character's tail markings color:", "Character Preference", "#"+tail_markings_color)
+					var/new_tail_markings_color = color_pick_sanitized(user, "Choose your character's tail markings color:", "Character Preference",  tail_markings_color)
 					if(new_tail_markings_color)
 						tail_markings_color = sanitize_hexcolor(new_tail_markings_color)
 
 				if("mutant_color")
-					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #1 color:", "Character Preference","#"+features["mcolor"])
+					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #1 color:", "Character Preference", features["mcolor"])
 					if(new_mutantcolor)
 
 						features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
 						try_update_mutant_colors()
 
 				if("mutant_color2")
-					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #2 color:", "Character Preference","#"+features["mcolor2"])
+					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #2 color:", "Character Preference", features["mcolor2"])
 					if(new_mutantcolor)
 						features["mcolor2"] = sanitize_hexcolor(new_mutantcolor)
 						try_update_mutant_colors()
 
 				if("mutant_color3")
-					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #3 color:", "Character Preference","#"+features["mcolor3"])
+					var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's mutant #3 color:", "Character Preference", features["mcolor3"])
 					if(new_mutantcolor)
 						features["mcolor3"] = sanitize_hexcolor(new_mutantcolor)
 						try_update_mutant_colors()
@@ -2405,7 +2404,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				if("skin_choice_pick")
 					var/prompt = alert(user, "Choose skin/scales color",, "Custom", "Predefined")
 					if(prompt == "Custom")
-						var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's skin/scale color:", "Character Preference","#"+features["mcolor"])
+						var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's skin/scale color:", "Character Preference", features["mcolor"])
 						if(new_mutantcolor)
 							features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
 							try_update_mutant_colors()
@@ -2419,7 +2418,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 				if("skin_feathers_pick")
 					var/prompt = alert(user, "Choose skin/feathers color",, "Custom", "Predefined")
 					if(prompt == "Custom")
-						var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's skin/feathers color:", "Character Preference","#"+features["mcolor"])
+						var/new_mutantcolor = color_pick_sanitized(user, "Choose your character's skin/feathers color:", "Character Preference", features["mcolor"])
 						if(new_mutantcolor)
 							features["mcolor"] = sanitize_hexcolor(new_mutantcolor)
 							try_update_mutant_colors()
