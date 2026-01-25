@@ -35,6 +35,8 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		/obj/structure/industrial_lift/tram,
 		// abstract of loot spawners
 		/obj/random/loot,
+		//Needs item
+		/obj/effect/temp_visual/offered_item_effect
 	)
 	// Invalid to spawn after roundstart
 	ignore += typesof(/obj/effect/landmark/mapGenerator)
