@@ -112,19 +112,6 @@
 			if(VVictim.generation > VDrinker.generation)
 				VDrinker.generation = VVictim.generation
 			VDrinker.research_points += VVictim.research_spent
-			if(VVictim.generation == GENERATION_FAILVAMP)
-				to_chat(src, span_userdanger("That was not my kindred! An abomination, abhorrent and unnatural. Crimson cursed one..."))
-				to_chat(victim, span_userdanger("Your breath catches when you realize it is the end. The curse has left your body, along with vitae sucked by the foul [src]!"))
-				VDrinker.research_points += RP_PER_CC_DIABLERIE
-				VVictim.on_removal()
-			else
-				victim.death()
-			victim.adjustBruteLoss(-50, TRUE)
-			victim.adjustFireLoss(-50, TRUE)
-			return
-		else if(victim.blood_volume < BLOOD_VOLUME_SURVIVE && victim.stat != DEAD)
-			to_chat(src, span_warning("This sad sacrifice for your own pleasure affects something deep in your mind."))
-			AdjustMasquerade(-1)
 			victim.death()
 			return
 
