@@ -551,34 +551,6 @@ And it also helps for the character set panel
 
 	user.open_clan_menu()
 
-/datum/status_effect/buff/crimson_curse_blood
-	id = "crimson_curse_blood"
-	alert_type = /atom/movable/screen/alert/status_effect/buff/crimson_curse_blood
-	duration = 30 SECONDS
-	status_type = STATUS_EFFECT_REFRESH
-
-/atom/movable/screen/alert/status_effect/buff/crimson_curse_blood
-	name = "Sanguine Curse"
-	desc = span_good("I have consumed the sweet vitae of one cursed by dark magicks; a blemish upon Kaine's name is justly expunged from this realm!")
-	icon_state = "bloodheal"
-
-/datum/status_effect/buff/crimson_curse_blood/on_apply()
-	. = ..()
-	if(.)
-		owner.add_stress(/datum/stressevent/nourishing_blood)
-		owner.adjustBruteLoss(5)
-
-/datum/status_effect/buff/crimson_curse_blood/on_remove()
-	. = ..()
-	owner.remove_stress(/datum/stressevent/nourishing_blood)
-
-/datum/stressevent/nourishing_blood
-	desc = span_good("That blood was tasty!")
-	stressadd = -2
-	max_stacks = 10
-	stressadd_per_extra_stack = -2
-	timer = 10 MINUTES
-
 /datum/status_effect/debuff/blood_disgust
 	id = "blood_disgust"
 	alert_type = /atom/movable/screen/alert/status_effect/debuff/blood_disgust
