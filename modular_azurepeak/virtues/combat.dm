@@ -215,6 +215,6 @@
 	addtimer(CALLBACK(src, .proc/crimson_apply, recipient), 30)
 
 /datum/virtue/combat/crimson_curse/proc/crimson_apply(mob/living/carbon/human/recipient)
-	var/datum/antagonist/vampire/stray/new_antag = new /datum/antagonist/vampire/stray(incoming_clan = /datum/clan/strays, forced_clan = FALSE, generation = GENERATION_FAILVAMP)
+	var/datum/antagonist/vampire/stray/new_antag = new /datum/antagonist/vampire/stray(incoming_clan = /datum/clan/strays, forced_clan = FALSE, generation = GENERATION_THINBLOOD)
 	recipient.mind.add_antag_datum(new_antag)
 	recipient.change_stat(STATKEY_CON, -1)
