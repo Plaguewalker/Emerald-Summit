@@ -50,7 +50,6 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 	if(istype(examined_datum, /datum/antagonist/vampire))
 		var/datum/antagonist/vampire/examined_vamp = examined_datum
 			else
-				return // CC should not see through the disguise of full-blooded vampires.
 		switch(examined_vamp.generation)
 			if(GENERATION_METHUSELAH)
 				return span_boldnotice("Kaine's firstborn!")
