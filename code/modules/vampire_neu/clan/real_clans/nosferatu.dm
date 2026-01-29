@@ -24,7 +24,7 @@
 		/datum/coven/obfuscate,
 		/datum/coven/bloodheal
 	)
-	blood_preference = BLOOD_PREFERENCE_RATS | BLOOD_PREFERENCE_DEAD | BLOOD_PREFERENCE_KIN | BLOOD_PREFERENCE_CC
+	blood_preference = BLOOD_PREFERENCE_RATS | BLOOD_PREFERENCE_DEAD | BLOOD_PREFERENCE_KIN
 	clane_traits = list(
 		TRAIT_STRONGBITE,
 		TRAIT_NOHUNGER,
