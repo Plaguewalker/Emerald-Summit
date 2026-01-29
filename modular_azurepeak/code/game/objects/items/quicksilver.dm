@@ -97,7 +97,7 @@
 		icon_state = "[initial(icon_state)]_half"
 		to_chat(user, span_notice("My inquisitorial training leaves just enough of the poultice left for one more anointment."))
 
-	if(Vamp && M.get_vampire_generation() == GENERATION_FAILVAMP)
+	if(Vamp && M.get_vampire_generation() == GENERATION_THINBLOOD)
 		M.flash_fullscreen("redflash3")
 		M.emote("agony", forced = TRUE)
 		to_chat(M, span_userdanger("THE FOUL SILVER! MY STILL HEART QUICKENS ONCE MORE!"))
